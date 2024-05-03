@@ -5,7 +5,7 @@ const CreateTask = () => {
     <div className="createTaskHolder">
       <h1>Koji je tvoj sledeći korak?</h1>
       <input placeholder="Upiši..." className="inputTag" />
-      <button>Sačuvaj</button>
+      <button onClick={() => addNewTask()}>Sačuvaj</button>
     </div>
   );
 };

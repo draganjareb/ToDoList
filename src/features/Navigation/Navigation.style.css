@@ -212,3 +212,13 @@ body {
   width: 85%;
   margin: 0 auto;
 }
+
+.recycleBin {
+  cursor: pointer;
+}
+
+.noTasks {
+  font-size: 45px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
