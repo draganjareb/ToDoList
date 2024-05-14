@@ -1,22 +1,20 @@
-import "../Navigation/Navigation.style.css";
 import { useNavigate } from "react-router-dom";
+import "./homePage.style.css";
+import Button from "../../components/button/Button";
 
-const HomePage = () => {
+const Start = () => {
   const router = useNavigate();
 
-  const startCreate = () => {
+  const redirectToTODO = () => {
     router("/createTask");
   };
-
   return (
-    <div>
-      <div className="homePageHolder">
-        <h1>Šta planiraš danas?</h1>
-        <h1>Kreiraj svoj novi task!</h1>
-        <button onClick={() => startCreate()}>Kreiraj</button>
-      </div>
+    <div className="start">
+      <h1>Šta planiraš danas?</h1>
+      <h2>Kreiraj svoj novi task!</h2>
+      <Button label="Kreiraj task" onClickHandler={redirectToTODO} />
     </div>
   );
 };
 
-export default HomePage;
+export default Start;

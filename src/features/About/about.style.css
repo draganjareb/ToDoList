@@ -1,0 +1,14 @@
+.megaPhonePictures {
+  max-width: 120px;
+  height: 120px;
+  width: 100%;
+}
+
+.aboutHolder {
+  width: 90%;
+  margin-top: 35px;
+}
+
+.aboutHolder h2 {
+  font-size: 28px;
+}
