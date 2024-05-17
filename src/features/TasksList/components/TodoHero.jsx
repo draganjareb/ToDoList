@@ -2,10 +2,9 @@ import "../todos.style.css";
 import useTodoStore from "../../../store/todos.store";
 
 const TODOHero = () => {
-  const todos = useTodoStore((state) => state.todos);
-
   // Calculate completed todos count
-  const todos_completed = todos.filter((todo) => todo.is_completed).length;
+  const todos = useTodoStore((state) => state.todos);
+  const todos_completed = todos.filter((todo) => todo.is_completed).length; // kada koristimo filter
   const total_todos = todos.length;
 
   return (

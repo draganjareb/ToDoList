@@ -1,6 +1,7 @@
 import "./about.style.css";
-import megaphone from "../../assets/megaphone.png";
+import megaphone from "../../assets/megaphone.png"; //lokacija slike
 
+//funkcija About i ujedno i stranica, njezin kostur i importuje se u App.jsx-u
 const About = () => {
   return (
     <div className="aboutHolder">

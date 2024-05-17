@@ -4,6 +4,7 @@ import EditTodoModal from "../../components/dialog/EditTodoModal";
 import useTodoStore from "../../store/todos.store";
 import "./todos.style.css";
 
+// pojasniti konstrukciju i zašto je ovo u zagradama
 const Todos = () => {
   const dialog = useTodoStore((state) => state.dialog);
   return (

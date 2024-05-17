@@ -3,7 +3,9 @@ import Item from "./TodoItem";
 
 const TODOList = () => {
   const todos = useTodoStore((state) => state.todos);
+
   return (
+    //pojasniti malo
     <ol className="todo_list">
       {todos && todos.length > 0 ? (
         todos?.map((item, index) => (

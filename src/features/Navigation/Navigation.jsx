@@ -8,15 +8,14 @@ const Navigation = () => {
   const router = useNavigate();
 
   const homePage = () => {
+    //funkcija na onKlik da nas vodi na lokaciju
     router("/");
   };
 
+  // Calculate completed todos count
   const todos = useTodoStore((state) => state.todos);
 
-  // Calculate completed todos count
-  const todos_completed = todos.filter((todo) => todo.is_completed).length;
   const total_todos = todos.length;
-
   return (
     <div className="navigationWrapper">
       <img
@@ -25,6 +24,7 @@ const Navigation = () => {
         className="megaphone"
         onClick={() => homePage()}
       />
+      {/* crveni krug sa brojem taskova */}
       <span>{total_todos}</span>
       <div className="navigationHolder">
         <Link to={{ pathname: "/" }}>Početna</Link>

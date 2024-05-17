@@ -4,13 +4,14 @@ import useTodoStore from "../../store/todos.store";
 import "./edit.style.css";
 import Button from "../button/Button";
 
+// pojasniti
 const EditTodoModal = () => {
   const { dialog, editTodo, setDialog } = useTodoStore();
   const { isOpen, item } = dialog;
   const [editedTitle, setEditedTitle] = useState(item.title || "");
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // X
     if (item) {
       editTodo(item.id, { title: editedTitle });
       setEditedTitle("");
