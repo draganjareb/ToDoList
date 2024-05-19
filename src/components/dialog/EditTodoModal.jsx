@@ -1,38 +1,50 @@
-import { Dialog } from "primereact/dialog";
 import { useState } from "react";
 import useTodoStore from "../../store/todos.store";
 import "./edit.style.css";
 import Button from "../button/Button";
+import useNotificationStore from "../../store/notification.store";
+import { Dialog, DialogTitle } from "@mui/material";
 
-// pojasniti
 const EditTodoModal = () => {
+  const { setNotification } = useNotificationStore((state) => state);
   const { dialog, editTodo, setDialog } = useTodoStore();
   const { isOpen, item } = dialog;
   const [editedTitle, setEditedTitle] = useState(item.title || "");
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // X
+    event.preventDefault();
     if (item) {
       editTodo(item.id, { title: editedTitle });
       setEditedTitle("");
       setDialog(false, null);
+      setNotification(true, "Task je uspješno ažuriran!", "info");
     }
+  };
+
+  const handleClose = () => {
+    setDialog(false, null);
   };
 
   return (
     <Dialog
-      appendTo="self"
-      header="Uredi Todo"
-      visible={isOpen && item}
-      style={{
-        width: "50vw",
-        backgroundColor: "white",
-        color: "black",
-        padding: "1rem",
-        borderRadius: "10px",
+      open={isOpen}
+      onClose={handleClose}
+      sx={{
+        "& .MuiDialog-paper": {
+          width: "100%",
+          maxWidth: "400px",
+          padding: "20px",
+          borderRadius: "10px",
+          position: "relative",
+        },
       }}
-      onHide={() => setDialog(false, null)}
     >
+      <DialogTitle sx={{ textAlign: "center", fontWeight: "bold" }}>
+        Edituj task
+      </DialogTitle>
+      <span onClick={handleClose} className="closeIcon">
+        X
+      </span>
       <div className="dialogForm">
         <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="todo">

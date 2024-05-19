@@ -1,24 +1,26 @@
 import Button from "../../components/button/Button";
 import "./create.style.css";
 import useTodoStore from "../../store/todos.store";
-import { useState } from "react";
+import useNotificationStore from "../../store/notification.store";
 import { Alert, Snackbar } from "@mui/material";
-("@mui/material");
+import { useState } from "react";
 
 const Create = () => {
-  const addTodo = useTodoStore((state) => state.addTodo); //----------------- pojasniti
+  const addTodo = useTodoStore((state) => state.addTodo);
+  const setNotifcation = useNotificationStore((state) => state.setNotification);
 
   const handleSubmit = (event) => {
-    event.preventDefault(); //------ pojasniti preventDefault sta i kad se koristi
+    event.preventDefault();
 
     const value = event.target.todo.value;
     const newTodo = {
       title: value,
-      id: Math.random().toString(36).substring(7), //-----------------pojasniti
+      id: Math.random().toString(36).substring(7),
       is_completed: false,
     };
 
     addTodo(newTodo);
+    setNotifcation(true, "Task je uspješno kreiran!", "success");
 
     event.target.reset();
   };
@@ -40,11 +42,9 @@ const Create = () => {
 
   return (
     <div className="create">
-      <h1>Koji je tvoj sledeći task?</h1>
-      {/* pojasniti onSubmit sta je i kad se koristi */}
+      <h2>Koji je tvoj sledeći task?</h2>
       <form className="form" onSubmit={addNewTask}>
         <label htmlFor="todo">
-          {/* da li je onaj ovdje id koristen u event.target.todo.value */}
           <input type="text" name="todo" id="todo" placeholder="Upiši..." />
         </label>
         <Button label="Sačuvaj" />
